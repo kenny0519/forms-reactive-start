@@ -32,10 +32,26 @@ export class AppComponent implements OnInit{
     this.signupForm.statusChanges.subscribe((status) =>{
       console.log(status);
     })
+
+    this.signupForm.setValue({
+      userData: {
+        username: 'Max',
+        email: 'Kenny@ktgh.com.tw'
+      },
+      gender: 'male',
+      hobbies:[]
+    })
+    this.signupForm.patchValue({
+      userData: {
+        username: 'Anna',
+        email: 'Kenny@ktgh.com.tw'
+      }
+    })
   }
 
   onSubmit(){
     console.log(this.signupForm);
+    this.signupForm.reset();
   }
 
   //加入個表單控制元件，並新增至FormGroup
